@@ -6,6 +6,13 @@ import sys
 import pandas as pd
 import numpy as np
 import io
+from dotenv import load_dotenv
+
+load_dotenv()
+PORT = int(os.getenv("PORT", 8000))
+HOST = os.getenv("HOST", "0.0.0.0")
+ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*").split(",")
 
 # Import your configuration (with safer imports)
 try:
@@ -40,7 +47,7 @@ frontend_url = os.getenv("FRONTEND_URL", "http://localhost:8000")
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins for testing
+    allow_origins=ALLOWED_ORIGINS,  # Allow all origins for testing
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
