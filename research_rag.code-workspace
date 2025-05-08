@@ -1,0 +1,13 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "python.defaultInterpreterPath": "/Users/babacaveman/Desktop/research_rag/.venv_tf/bin/python",
+        "python.analysis.extraPaths": [
+            "/Users/babacaveman/Desktop/research_rag/.venv_tf/bin/python3.10/site-packages"
+        ]
+    }
+}
