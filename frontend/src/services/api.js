@@ -59,7 +59,7 @@ export const checkApiStatus = async () => {
  */
 export const predictMoisture = async (file) => {
   try {
-    const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+    const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
     const endpoints = ['/predict', '/predict-moisture', '/api/predict-moisture'];
     
     // Create a FormData instance to send the file
