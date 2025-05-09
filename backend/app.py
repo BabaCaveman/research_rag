@@ -44,14 +44,15 @@ app = FastAPI(title="Moisture Content Prediction API")
 # Determine frontend URL based on environment
 frontend_url = os.getenv("FRONTEND_URL", "http://localhost:8000")
 
-# Configure CORS
+# Configure CORS with specific origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS,  # Allow all origins for testing
+    allow_origins=ALLOWED_ORIGINS,  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Initialize model loader with correct paths
 model_paths = {
