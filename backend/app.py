@@ -75,6 +75,28 @@ for key, path in list(model_paths.items()):
 # Initialize the model loader with the paths
 model_loader = ModelLoader(**model_paths)
 
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app):
+    # Startup code (runs before the application starts)
+    print("Loading models on startup...")
+    model_loader.load_model()
+    
+    yield  # This is where the application runs
+    
+    # Shutdown code (runs when the application is shutting down)
+    # Any cleanup code would go here
+
+# Use the lifespan when creating the FastAPI app
+app = FastAPI(lifespan=lifespan)
+
+# The rest of your routes remain the same
+@app.get("/")
+async def root():
+    """Root endpoint to check if the API is running."""
+    return {"message": "Moisture Content Prediction API is running"}
+
 # Include your API router if it was imported successfully
 if api_router:
     app.include_router(api_router)
