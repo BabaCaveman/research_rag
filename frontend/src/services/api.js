@@ -14,7 +14,7 @@ export const checkApiStatus = async () => {
     ];
     
     // Determine the base URL - for development it's likely a different port
-    const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000'; // Updated to match your backend port
+    const baseUrl = process.env.REACT_APP_API_URL || 'https://research-rag.onrender.com'; // Updated to match your backend port
     
     // Try each potential path until one works
     for (const path of potentialPaths) {
@@ -59,7 +59,7 @@ export const checkApiStatus = async () => {
  */
 export const predictMoisture = async (file) => {
   try {
-    const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+    const baseUrl = process.env.REACT_APP_API_URL || 'https://research-rag.onrender.com';
     const endpoints = ['/predict', '/predict-moisture', '/api/predict-moisture'];
     
     // Create a FormData instance to send the file
@@ -103,7 +103,7 @@ export const predictMoisture = async (file) => {
  * This can help diagnose API endpoint configuration issues
  */
 export const discoverApiEndpoints = async () => {
-  const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000'; // Updated port
+  const baseUrl = process.env.REACT_APP_API_URL || 'https://research-rag.onrender.com'; // Updated port
   const potentialEndpoints = [
     '/',
     '/api',
